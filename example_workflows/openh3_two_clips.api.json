@@ -1,0 +1,98 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "CHOOSE_YOUR_H3_FL2VA_MODEL.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "CHOOSE_YOUR_H3_TEXT_ENCODER.safetensors",
+      "type": "minimax",
+      "device": "default"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "CHOOSE_YOUR_H3_VIDEO_VAE.safetensors"
+    }
+  },
+  "4": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "CHOOSE_YOUR_H3_AUDIO_VAE.safetensors"
+    }
+  },
+  "5": {
+    "class_type": "MiniMaxH3OpenH3Clips",
+    "inputs": {
+      "clips_json": "[\n  {\n    \"id\": \"arrival\",\n    \"intent\": \"A courier in a yellow raincoat arrives at a quiet lighthouse.\",\n    \"seconds\": 5\n  },\n  {\n    \"id\": \"lamp\",\n    \"intent\": \"The courier climbs the lighthouse stairs and lights the lamp.\",\n    \"seconds\": 5\n  }\n]",
+      "shared_context": "Same courier throughout: yellow raincoat, brown satchel. Overcast coastal evening.",
+      "llm_url": "http://127.0.0.1:1234/v1",
+      "llm_model": "qwen/qwen3.5-9b",
+      "width": 864,
+      "height": 480,
+      "creativity": "balanced",
+      "direction": "",
+      "seed": 7,
+      "timeout_s": 600
+    }
+  },
+  "6": {
+    "class_type": "MiniMaxH3MotionDirector",
+    "inputs": {
+      "task_type": "t2v — 文生视频(Text to Video)",
+      "global_prompt": "",
+      "bd_grp_sample": "采样设置",
+      "cfg": 1.0,
+      "seed": 0,
+      "frame_rate": 24.0,
+      "width": 864,
+      "height": 480,
+      "ref_max_size": 864,
+      "total_frames": 248,
+      "timeline_data": "",
+      "bd_grp_motion": "Motion Context",
+      "motion_context_enabled": true,
+      "context_length": 22,
+      "source_overlap_frames": 5,
+      "audio_context_enabled": true,
+      "color_reanchor_enabled": false,
+      "bd_grp_advanced": "高级采样",
+      "steps": 25,
+      "sampler_name": "res_multistep",
+      "scheduler": "simple",
+      "shift_video": 12.0,
+      "shift_audio": 3.0,
+      "bd_grp_perf": "性能",
+      "clear_vram_between_segments": true,
+      "export_source_images": false,
+      "bd_grp_experimental": "Experimental",
+      "pin_renorm_enabled": false,
+      "postprocess_config": "",
+      "model": [
+        "1",
+        0
+      ],
+      "clip": [
+        "2",
+        0
+      ],
+      "video_vae": [
+        "3",
+        0
+      ],
+      "audio_vae": [
+        "4",
+        0
+      ],
+      "director_inputs": [
+        "5",
+        0
+      ]
+    }
+  }
+}

@@ -268,6 +268,16 @@ Public node outputs remain simple:
 
 ---
 
+## OpenH3-IR local LLM integration (experimental fork)
+
+The new **MiniMax H3 OpenH3 Clip Prompter** compiles a list of individual clip
+requests with your local LLM and feeds complete briefs plus matching durations
+directly into Director. It defaults to LM Studio, performs no H3 model loading
+during prompt writing, and exposes draft-fallback diagnostics.
+See [installation, workflow and limitations](docs/OPENH3_INTEGRATION.md).
+The first adapter supports T2V; Mixed mode and reference-media binding are not
+implemented in this node. This is an experimental fork, not an upstream release.
+
 ## External Director Inputs / Assets
 
 The Director is an all-in-one production interface, but it is not a closed box. Other ComfyUI nodes can still feed prompts and media into standalone modes through the external input architecture.

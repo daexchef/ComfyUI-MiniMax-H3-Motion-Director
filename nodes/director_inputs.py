@@ -165,6 +165,20 @@ class MiniMaxH3MotionDirector(_BaseDirector):
             else None
         )
 
+        from ..director.openh3_bridge import resolve_compiled_timeline
+        from ..lib.task_prompts import resolve_task_key
+
+        compiled_timeline = resolve_compiled_timeline(
+            director_inputs, task_key=resolve_task_key(task_type), global_prompt=global_prompt,
+        )
+        if compiled_timeline is not None:
+            timeline_data, compiled_settings = compiled_timeline
+            total_frames = compiled_settings["totalFrames"]
+            frame_rate = compiled_settings["frameRate"]
+            width = compiled_settings["width"]
+            height = compiled_settings["height"]
+            ref_max_size = compiled_settings["refMaxSize"]
+
         effective_timeline_data = timeline_data
         if not str(effective_timeline_data or "").strip():
             effective_timeline_data = default_timeline_json(
@@ -225,6 +239,17 @@ class MiniMaxH3MotionDirector(_BaseDirector):
             clear_vram_between_segments=clear_vram_between_segments,
             postprocess_config=postprocess_config,
         )
+
+        if compiled_timeline is not None:
+            clip_manifest = director_inputs["openh3_batch"]["clips"]
+            report = append_report_section_lines(report, "OpenH3-IR Clip Prompts", [
+                "Timeline source: OpenH3 Clip Prompter (Director UI cards are not rewritten)",
+                *[
+                    f"{entry['id']}: {entry['frames']} frames; source={entry['source']}"
+                    + (f"; DRAFT FALLBACK: {entry['fallback_reason']}" if entry.get("fallback_reason") else "")
+                    for entry in clip_manifest
+                ],
+            ])
 
         postprocess = normalize_postprocess_config(postprocess_config)
         deblur_config = postprocess["global_refine"]
