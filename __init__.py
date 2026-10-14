@@ -65,13 +65,17 @@ else:
         MiniMaxH3MotionDirectorInputs,
     )
 
+    from .nodes.openh3_clips import MiniMaxH3OpenH3Clips
+
     NODE_CLASS_MAPPINGS = {
+        "MiniMaxH3OpenH3Clips": MiniMaxH3OpenH3Clips,
         "MiniMaxH3MotionDirector": MiniMaxH3MotionDirector,
         "MiniMaxH3MotionDirectorInputs": MiniMaxH3MotionDirectorInputs,
         "MiniMaxH3MotionDirectorAssets": MiniMaxH3MotionDirectorAssets,
     }
 
     NODE_DISPLAY_NAME_MAPPINGS = {
+        "MiniMaxH3OpenH3Clips": "MiniMax H3 OpenH3 Clip Prompter",
         "MiniMaxH3MotionDirector": "MiniMax H3 Motion Director",
         "MiniMaxH3MotionDirectorInputs": "MiniMax H3 Motion Director Inputs",
         "MiniMaxH3MotionDirectorAssets": "MiniMax H3 Motion Director Assets",

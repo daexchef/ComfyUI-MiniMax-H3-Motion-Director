@@ -1,0 +1,2 @@
+# Optional: install with the Python executable used by ComfyUI.
+open-h3-ir @ git+https://github.com/daexchef/open-h3-ir.git@4b21078cae13165eda80c5c4c9990d6013298708

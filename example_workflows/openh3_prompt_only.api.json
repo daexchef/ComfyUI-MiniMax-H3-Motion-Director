@@ -1,0 +1,17 @@
+{
+  "5": {
+    "class_type": "MiniMaxH3OpenH3Clips",
+    "inputs": {
+      "clips_json": "[\n  {\n    \"id\": \"arrival\",\n    \"intent\": \"A courier in a yellow raincoat arrives at a quiet lighthouse.\",\n    \"seconds\": 5\n  },\n  {\n    \"id\": \"lamp\",\n    \"intent\": \"The courier climbs the lighthouse stairs and lights the lamp.\",\n    \"seconds\": 5\n  }\n]",
+      "shared_context": "Same courier throughout: yellow raincoat, brown satchel. Overcast coastal evening.",
+      "llm_url": "http://127.0.0.1:1234/v1",
+      "llm_model": "qwen/qwen3.5-9b",
+      "width": 864,
+      "height": 480,
+      "creativity": "balanced",
+      "direction": "",
+      "seed": 7,
+      "timeout_s": 600
+    }
+  }
+}

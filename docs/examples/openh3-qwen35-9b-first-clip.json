@@ -1,0 +1,18 @@
+{
+  "id": "arrival",
+  "mode": "t2va",
+  "prompt": "integrated_multimodal_description: [Shot 1] Live-action, cinematic, a medium-wide static shot frames an overcast coastal evening with a stone lighthouse standing against the grey sky. The camera pushes in with small amplitude at slow speed as a courier wearing a bright yellow raincoat and carrying a brown satchel walks into the frame from the left, approaching the lighthouse steps. The courier stops at the base of the structure, looking up at the tower as the video ends.\n\noverall_soundscape: Steady wind blows across the coastal rocks while soft rain taps against the courier's yellow raincoat. Wet footsteps crunch on gravel as the courier approaches the stone steps, followed by the rustle of fabric settling when they stop.\n\nnon_diegetic_music: N/A\n",
+  "requested_seconds": 5.0,
+  "frames": 124,
+  "fps": 24,
+  "seconds": 5.166666666666667,
+  "canvas": [
+    864,
+    480
+  ],
+  "source": "written",
+  "fallback_reason": null,
+  "findings": [
+    "[WARN] H3-token-band: prompt is 157 tokens, outside the 350-1400 band (published hosted IRs are 537-919); distribution drift, not a cost problem"
+  ]
+}

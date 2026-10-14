@@ -9,6 +9,7 @@ build/
 *.egg-info/
 .idea/
 .vscode/
+node_modules/
 
 # Local ComfyUI/runtime artefacts
 input/
